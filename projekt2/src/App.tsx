@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Products } from "./database.json"
 
@@ -9,6 +8,10 @@ interface Product {
   price: number
 }
 
+// byts mot cart i databas
+interface ProductItems extends Array<Product>{}
+const productCart: ProductItems = []
+
 function App() {
   return (
     <div className="App">
@@ -17,9 +20,9 @@ function App() {
   );
 }
 
-const ProductItem = ({id, name, price}:Product) => {
+export const ProductItem = ({id, name, price}:Product) => {
   const BuyItem = () => {
-    console.log("buy this item")
+    productCart.push({id, name, price})
   }
   return (
     <div key={id}>
@@ -30,7 +33,7 @@ const ProductItem = ({id, name, price}:Product) => {
   ) 
 }
 
-const ProductList = () => {
+export const ProductList = () => {
   const itemList = Products
   const [inputValue, setInputValue] = useState<string>("")
   return (
