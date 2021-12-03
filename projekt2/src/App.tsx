@@ -48,7 +48,7 @@ export const ProductList = () => {
     <p>{inputValue}</p>
     {
       itemList.filter(item => item.name.toLowerCase().includes(inputValue.toLowerCase())).map(item => (
-        <ProductItem id={item.id} name={item.name} price={item.price}/>
+        <ProductItem key={item.id} id={item.id} name={item.name} price={item.price}/>
       ))
     }
     </>
