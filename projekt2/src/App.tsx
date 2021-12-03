@@ -35,20 +35,20 @@ function App() {
 export const ProductCart = () => {
   const itemList = Products
   return (
-    <>
+    <div>
     {
       itemList.map(item => {
         const cart = productCart.find(cart => cart.productId === item.id)
-        return cart ? (<ProductItem key={item.id} id={item.id} name={item.name} price={item.price}/>) : (<></>)
+        return cart ? (<div key={item.id}><ProductItem  id={item.id} name={item.name} price={item.price}/><p>{cart.amount}</p></div>) : null
     })}
-    </>
+    </div>
   )
 }
 export const ProductList = () => {
   const itemList = Products
   const [inputValue, setInputValue] = useState<string>("")
   return (
-    <>
+    <div>
     <input 
     type="text"
     value={inputValue}
@@ -59,12 +59,16 @@ export const ProductList = () => {
     <p>{inputValue}</p>
     {
       itemList.filter(item => item.name.toLowerCase().includes(inputValue.toLowerCase())).map(item => (
-        <ProductItem key={item.id} id={item.id} name={item.name} price={item.price}/>
+        <div key={item.id}>
+          <ProductItem id={item.id} name={item.name} price={item.price}/>
+        </div>
       ))
     }
-    </>
+    </div>
   )
 }
+
+
 
 export const ProductItem = ({id, name, price}:Product) => {
   const BuyItem = () => {
@@ -72,11 +76,11 @@ export const ProductItem = ({id, name, price}:Product) => {
     cart ? cart.amount += 1 : productCart.push({productId: id, amount: 1})
   }
   return (
-    <div key={id}>
+    <>
       <h3>{name}</h3>
       <p>{price}</p>
       <button onClick={BuyItem}>Buy</button>
-    </div>
+    </>
   ) 
 }
 
