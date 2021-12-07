@@ -8,6 +8,8 @@ import CartView from './components/CartView';
 import App from "./App"
 import { Products } from "./database.json"
 import Product from "./models/Product"
+import LoginView from './components/LogInView'
+
 type Props = {
   view: (item: Product) => void
 }
@@ -77,4 +79,33 @@ describe("Finns grid av produkter", () => {
     productButton.simulate('click')
     expect(wrapper.contains(<ProductView id="0b7f94e5-42d4-4aff-afb2-0260f8fb8e17" name="Apple" price={25}/>)).toBe(true)
   })
+})
+
+describe("Finns login view (smoke test)", () => {
+  it("it renders", () => {
+    render(<LoginView/>)
+  })
+
+  it("renders the input field for name (black box test)", () => {
+    const wrapper = mount(<LoginView/>)
+    const nameField = wrapper.find(".name")
+    expect(nameField.exists()).toBe(true)
+  })
+
+  it("renders a button (black box test) - login button i detta fall", () => {
+    const wrapper = mount(<LoginView/>)
+    const button = wrapper.find('button')
+    expect(button.exists()).toBe(true)
+  })
+
+  it("verifies if test text is in name input field", () => {
+    const wrapper = mount(<LoginView/>)
+    const button = wrapper.find('button')
+    const nameField = wrapper.find('.name')
+    nameField.simulate('change', { target: { value: 'Simon' } })
+    button.simulate('click')
+    const h2 = wrapper.find('h2')
+    expect(h2.exists()).toBe(true)
+  })
+
 })

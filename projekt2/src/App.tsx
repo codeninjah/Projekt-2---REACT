@@ -7,6 +7,8 @@ import ProductView from "./components/productView"
 
 import Product from './models/Product';
 
+import LoginView from './components/LogInView';
+
 // byts mot cart i databas
 /*
 const productCart: ProductCarts = [        {
@@ -16,9 +18,9 @@ const productCart: ProductCarts = [        {
 }]
 */
 function App() {
-  const [view, setView] = useState<string>('start')
+  const [view, setView] = useState<string>('login')
   const [product, setProduct] = useState<Product>({id:"", name:"", price:0})
-  const VIEW_PRODUCTS = 'products', VIEW_CART = 'cart', VIEW_PRODUCT = 'product'
+  const VIEW_PRODUCTS = 'products', VIEW_CART = 'cart', VIEW_PRODUCT = 'product', LOGIN_VIEW = 'login'
   let main = null
   if(view === VIEW_PRODUCTS) {
     main = <ProductsView view={(item:Product) => viewProduct(item)}/>
@@ -28,6 +30,9 @@ function App() {
   }
   else if (view === VIEW_PRODUCT) {
     main = <ProductView id={product.id} name={product.name} price={product.price}/>
+  }
+  else if (view == LOGIN_VIEW) {
+    main = <LoginView />
   }
   const viewProduct = (item: Product) => {
     setProduct(item)
