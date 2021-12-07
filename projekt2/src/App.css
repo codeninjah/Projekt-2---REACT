@@ -1,38 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#root {
+  max-height: 100vh;
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 84% 1fr;
+  /*
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  */
+}
+header {
+  padding: 0.8rem 2.4rem 0 2.4rem;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  grid-row: 1/2;
+}
+header > nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: black;
+}
+main {
+  grid-row: 2/3;
+  height: 100%;
+  /*
+  flex-grow: 1;
+  justify-self: flex-start;
+  */
+  background: grey;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+  box-sizing: border-box;
+}
+.productsList {
+  flex-grow: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.8rem;
+  list-style: none;
+  box-sizing: border-box;
+  overflow-y: hidden;
+}
+.productsList li {
+  background: white;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 0.8rem;
 }
-
-.App-link {
-  color: #61dafb;
+.productsList > li > * {
+  margin: 0.2rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(233, 233, 233);
+  box-sizing: border-box;
 }
+.mainBar > h2 {
+  padding: 0.8rem 2.4rem 0.8rem 2.4rem;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2.4rem 0 2.4rem;
+}
+/*
+main > div {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  padding: 2.4rem;
+  background: white;
+  box-sizing: border-box;
+  width: 100%;
+}
+*/
+footer {
+  grid-row: 3/4;
+  background: black;
+  /*
+  height: 2.4rem;
+  */
+}
+/*
+.productView {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+*/

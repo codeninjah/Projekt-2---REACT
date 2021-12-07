@@ -1,7 +1,6 @@
+import Product from "./Product"
 
-interface Cart {
-    //userLogin: string,
-    productId: String,
+interface Cart extends Product {
     amount: number
   }
   

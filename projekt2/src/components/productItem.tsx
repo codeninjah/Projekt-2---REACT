@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carts } from "../database.json"
 import Product from "../models/Product"
 
@@ -10,7 +9,7 @@ const ProductItem = ({id, name, price}:Product) => {
     return (
       <>
         <h3>{name}</h3>
-        <p>{price}</p>
+        <p>{price} SEK</p>
         <button onClick={BuyItem}>Buy</button>
       </>
     ) 
