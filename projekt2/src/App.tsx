@@ -4,9 +4,7 @@ import './App.css';
 import ProductsView from "./components/productsView"
 import CartView from './components/CartView';
 import ProductView from "./components/productView"
-
 import Product from './models/Product';
-
 import LoginView from './components/LogInView';
 
 // byts mot cart i databas
@@ -32,7 +30,7 @@ function App() {
     main = <ProductView id={product.id} name={product.name} price={product.price}/>
   }
   else if (view == LOGIN_VIEW) {
-    main = <LoginView />
+    main = <LoginView view={() => setView("products")}/>
   }
   const viewProduct = (item: Product) => {
     setProduct(item)

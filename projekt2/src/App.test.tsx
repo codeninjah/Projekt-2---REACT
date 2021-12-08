@@ -82,25 +82,21 @@ describe("Finns grid av produkter", () => {
 })
 
 describe("Finns login view (smoke test)", () => {
-  it("it renders", () => {
-    render(<LoginView/>)
-  })
-
   it("renders the input field for name (black box test)", () => {
-    const wrapper = mount(<LoginView/>)
+    const wrapper = mount(<App/>)
     const nameField = wrapper.find(".name")
     expect(nameField.exists()).toBe(true)
   })
 
   it("renders a button (black box test) - login button i detta fall", () => {
-    const wrapper = mount(<LoginView/>)
+    const wrapper = mount(<App/>)
     const button = wrapper.find('button')
     expect(button.exists()).toBe(true)
   })
 
   it("verifies if test text is in name input field", () => {
-    const wrapper = mount(<LoginView/>)
-    const button = wrapper.find('button')
+    const wrapper = mount(<App/>)
+    const button = wrapper.find('[data-test="login-button"]')
     const nameField = wrapper.find('.name')
     nameField.simulate('change', { target: { value: 'Simon' } })
     button.simulate('click')
