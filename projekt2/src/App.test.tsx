@@ -77,4 +77,14 @@ describe("Finns grid av produkter", () => {
     productButton.simulate('click')
     expect(wrapper.contains(<ProductView id="0b7f94e5-42d4-4aff-afb2-0260f8fb8e17" name="Apple" price={25}/>)).toBe(true)
   })
+
+  it("decrese cart amount", () => {
+		const wrapper = mount(<App />)
+    const cartButton = wrapper.find('[data-test="cart-button"]')
+    cartButton.simulate('click')
+    const decButton = wrapper.find('["dec-cart-button"]').at(0)
+    decButton.simulate('click')
+  })
+
+
 })
