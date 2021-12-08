@@ -29,7 +29,7 @@ function App() {
   else if (view === VIEW_PRODUCT) {
     main = <ProductView id={product.id} name={product.name} price={product.price}/>
   }
-  else if (view == LOGIN_VIEW) {
+  else if (view === LOGIN_VIEW) {
     main = <LoginView view={() => setView("products")}/>
   }
   const viewProduct = (item: Product) => {

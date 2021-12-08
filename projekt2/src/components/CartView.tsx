@@ -2,7 +2,6 @@ import { Products, Carts } from "../database.json"
 import CartItem from "./cartItem"
 
 const CartView = () => {
-    const itemList = Products
     return (
       <>
         <div className="mainBar">

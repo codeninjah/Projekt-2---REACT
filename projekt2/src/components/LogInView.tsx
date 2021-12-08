@@ -12,7 +12,12 @@ const LoginView = (props: Props) => {
     function LogaIn(){
 
         const user = Users.find(user => user.name === inputValue)
-        props.view()
+        if (user) {
+            props.view()
+        }   else {
+            // gör något som visar fel som går att testa
+        }     
+
         
         //1. När man klickar på knappen ska man då - först test
         //2. Ta emot värdet i name textfältet

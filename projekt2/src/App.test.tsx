@@ -7,21 +7,8 @@ import ProductView from "./components/productView"
 import CartView from './components/CartView';
 import App from "./App"
 import { Products } from "./database.json"
-import Product from "./models/Product"
-import LoginView from './components/LogInView'
 
-type Props = {
-  view: (item: Product) => void
-}
-//import { renderIntoDocument } from 'react-dom/test-utils';
 
-/*
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
-*/
 const product = Products[0]
 describe("Finns grid av produkter", () => {
   it("renders ProductItem without errors (smoke test)", () => {
