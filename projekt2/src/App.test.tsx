@@ -35,6 +35,21 @@ describe("Finns grid av produkter", () => {
     const nameElement = screen.getByText(/Mellon/i)
     expect(nameElement).toBeInTheDocument()
   })  
+  it("decrease amount on click", () => {
+		const wrapper = mount(<CartView/>)
+    const decButton = wrapper.find('[data-test="dec-cart-button"]').at(0)
+    const amount = wrapper.find('[data-test="amount-paragraph"]').at(0)
+    decButton.simulate('click')
+    expect(amount.text()).toBe('9');
+  })  
+  it("increase amount on click", () => {
+		const wrapper = mount(<CartView/>)
+    const incButton = wrapper.find('[data-test="add-cart-button"]').at(0)
+    const amount = wrapper.find('[data-test="amount-paragraph"]').at(0)
+    incButton.simulate('click')
+    expect(amount.text()).toBe('11');
+  })  
+
   it("renders ProductView without errors (smoke test)", () => {
     render(<ProductView id="55f0c839-c9f5-4a77-bd1f-1d12667bf412" name="Ginger" price={49}/>)
   })
@@ -65,14 +80,6 @@ describe("Finns grid av produkter", () => {
     const productButton = wrapper.find('[data-test="product-button"]').at(0)
     productButton.simulate('click')
     expect(wrapper.contains(<ProductView id="0b7f94e5-42d4-4aff-afb2-0260f8fb8e17" name="Apple" price={25}/>)).toBe(true)
-  })
-
-  it("decrese cart amount", () => {
-		const wrapper = mount(<App />)
-    const cartButton = wrapper.find('[data-test="cart-button"]')
-    cartButton.simulate('click')
-    const decButton = wrapper.find('["dec-cart-button"]').at(0)
-    decButton.simulate('click')
   })
 
 })

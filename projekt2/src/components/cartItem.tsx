@@ -21,8 +21,8 @@ const CartItem = ({amount, id, name, price}: Cart) => {
                 <button onClick={() => changeAmount(true)} data-test="add-cart-button">+</button>
                 <button onClick={() => changeAmount(false)} data-test="dec-cart-button">-</button>
             </div>            
-            <button onClick={deleteItem}>Remove</button>
-            <p>{itemAmount}</p>
+            <button data-test="delete-cart-button" onClick={deleteItem}>Remove</button>
+            <p data-test="amount-paragraph">{itemAmount}</p>
         </li>
     )
 }
