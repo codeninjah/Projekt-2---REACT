@@ -8,6 +8,8 @@ const CartItem = ({amount, id, name, price}: Cart) => {
         add ? setAmount(itemAmount + 1) : setAmount(itemAmount - 1)
         const cart = Carts.find(item => item.productId === id)
         if (cart) cart.amount = itemAmount
+        // bug vid tillbaka till products och sen igen så minskas eller ökas 
+        // värdet på amount en fel åt båda håll uppdatteringen till Carts?
     }
     const deleteItem = () => {
         const cartIndex = Carts.findIndex(item => item.productId === id)
