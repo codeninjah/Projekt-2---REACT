@@ -10,9 +10,9 @@ const CartView = () => {
         </div>
         <ul className="productsList">
           {
-            itemList.map(item => {
-              const cart = Carts.find(cart => cart.productId === item.id)
-              return cart ? (<CartItem key={item.id} id={item.id} name={item.name} price={item.price} amount={cart.amount}/>) : null
+            Carts.map(cart => {
+              const item = Products.find(item => cart.productId === item.id)
+              return item ? (<CartItem key={item.id} id={item.id} name={item.name} price={item.price} amount={cart.amount}/>) : null
           })}
         </ul>
       </>
