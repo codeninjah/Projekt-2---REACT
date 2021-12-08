@@ -2,6 +2,7 @@ import { Products, Carts } from "../database.json"
 import CartItem from "./cartItem"
 
 const CartView = () => {
+  // räkna ut sammanlagdkostnad
     return (
       <>
         <div className="mainBar">

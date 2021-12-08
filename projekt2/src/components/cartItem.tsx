@@ -14,6 +14,8 @@ const CartItem = ({amount, id, name, price}: Cart) => {
     const deleteItem = () => {
         const cartIndex = Carts.findIndex(item => item.productId === id)
         Carts.splice(cartIndex, cartIndex +1)
+
+        // delete uppdateras inte men fugnerar. behöver testas
     }
     return (
         <li>
