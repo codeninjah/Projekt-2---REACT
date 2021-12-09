@@ -106,5 +106,13 @@ describe("Finns login view (smoke test)", () => {
     const h2 = wrapper.find('h2')
     expect(h2.exists()).toBe(true)
   })
+  it("Error if name doesn't exist when login", () => {
+    const wrapper = mount(<App/>)
+    const button = wrapper.find('[data-test="login-button"]')
+    const nameField = wrapper.find('.name')
+    nameField.simulate('change', { target: { value: 'felNamn' } })
+    button.simulate('click')
+    expect(wrapper.find('.name').getElement().props.value).toBe('Wrong name')
+  })
 
 })

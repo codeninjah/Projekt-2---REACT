@@ -6,7 +6,6 @@ type Props = {
 }
 
 const LoginView = (props: Props) => {
-    //const userNames = Users
     const [inputValue, setInputValue] = useState<string>("")
 
     function LogaIn(){
@@ -15,20 +14,9 @@ const LoginView = (props: Props) => {
         if (user) {
             props.view()
         }   else {
-            // gör något som visar fel som går att testa
+            setInputValue("Wrong name")
         }     
-
-        
-        //1. När man klickar på knappen ska man då - först test
-        //2. Ta emot värdet i name textfältet
-        //3. Jämföra om den finns i userNames
-        //4. Skicka användaren vidare till ProductsView
-
-        //const nameFromInput = ''
-
-
     }
-
     return(
         <div>
             <input 
