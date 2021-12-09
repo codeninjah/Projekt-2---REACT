@@ -3,13 +3,16 @@ import { useState } from 'react'
 import { User, Props } from "../models/User"
 
 const LoginView = (props: Props) => {
-    const [inputValue, setInputValue] = useState<string>("")
+    const [nameValue, setnameValue] = useState<string>("")
+    const [passwordValue, setpasswordValue] = useState<string>("")
     const LogaIn = () => {
-        const user:User | undefined = Users.find(user => user.name === inputValue)
-        if (user) {
+        const user:User | undefined = Users.find(user => user.name === nameValue)
+
+        if (user && user.login == passwordValue) {
             props.view()
         }   else {
-            setInputValue("Wrong name")
+            setnameValue("Wrong details")
+            setpasswordValue("")
         }     
     }
     return(
@@ -18,10 +21,19 @@ const LoginView = (props: Props) => {
             type="text"
             placeholder="Name"
             className="name"
-            value={inputValue}
+            value={nameValue}
             onChange={(
               ev: React.ChangeEvent<HTMLInputElement>,
-            ): void => setInputValue(ev.target.value)}
+            ): void => setnameValue(ev.target.value)}
+          />
+          <input 
+            type="password"
+            placeholder="Password"
+            className="password"
+            value={passwordValue}
+            onChange={(
+              ev: React.ChangeEvent<HTMLInputElement>,
+            ): void => setpasswordValue(ev.target.value)}
           />
             <button
             data-test="login-button"
