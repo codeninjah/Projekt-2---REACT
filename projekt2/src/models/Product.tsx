@@ -1,9 +1,11 @@
 
 
-interface Product {
+export interface Product {
     id: string,
     name: string,
     price: number
   }
 
-  export default Product
+export type Props = {
+  view: (item: Product) => void
+}

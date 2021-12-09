@@ -4,17 +4,9 @@ import './App.css';
 import ProductsView from "./components/productsView"
 import CartView from './components/CartView';
 import ProductView from "./components/productView"
-import Product from './models/Product';
+import { Product } from './models/Product';
 import LoginView from './components/LogInView';
 
-// byts mot cart i databas
-/*
-const productCart: ProductCarts = [        {
-  //"userLogin": "3fbdcc8f-0d86-4f43-8d70-70008809bad0",
-  "productId": "818ca9b3-a0f1-4267-b429-a8b7a2da66f4",
-  "amount": 10
-}]
-*/
 function App() {
   const [view, setView] = useState<string>('login')
   const [product, setProduct] = useState<Product>({id:"", name:"", price:0})

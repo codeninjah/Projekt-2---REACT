@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 import { Products } from "../database.json"
 import ProductItem from './productItem';
-import Product from "../models/Product"
+import {Props}from "../models/Product"
 
-type Props = {
-  view: (item: Product) => void
-}
+
 
 export const ProductsView = (props:Props) => {
     const itemList = Products
     const [inputValue, setInputValue] = useState<string>("")
-  
     return (
       <>
         <div className="mainBar">

@@ -1,5 +1,5 @@
 import ProductItem from "./productItem"
-import Product from "../models/Product"
+import {Product} from "../models/Product"
 
 const ProductView = ({id, name, price}:Product) => {
     return (

@@ -1,5 +1,5 @@
 import { Carts } from "../database.json"
-import Product from "../models/Product"
+import {Product} from "../models/Product"
 
 const ProductItem = ({id, name, price}:Product) => {
     const BuyItem = () => {

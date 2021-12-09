@@ -1,16 +1,11 @@
 import { Users } from '../database.json'
 import { useState } from 'react'
-
-type Props = {
-    view: () => void
-}
+import { User, Props } from "../models/User"
 
 const LoginView = (props: Props) => {
     const [inputValue, setInputValue] = useState<string>("")
-
-    function LogaIn(){
-
-        const user = Users.find(user => user.name === inputValue)
+    const LogaIn = () => {
+        const user:User | undefined = Users.find(user => user.name === inputValue)
         if (user) {
             props.view()
         }   else {
