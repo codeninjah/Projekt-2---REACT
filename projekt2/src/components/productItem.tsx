@@ -10,7 +10,7 @@ const ProductItem = ({id, name, price}:Product) => {
       <>
         <h3>{name}</h3>
         <p>{price} SEK</p>
-        <button onClick={BuyItem}>Buy</button>
+        <button onClick={BuyItem} data-test="buy-button">Buy</button>
       </>
     ) 
   }

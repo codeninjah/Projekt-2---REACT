@@ -35,19 +35,26 @@ describe("Finns grid av produkter", () => {
     const nameElement = screen.getByText(/Mellon/i)
     expect(nameElement).toBeInTheDocument()
   })  
-  it("decrease amount on click", () => {
+  it("decrease amount on dec click CartItem in CartView", () => {
 		const wrapper = mount(<CartView/>)
     const decButton = wrapper.find('[data-test="dec-cart-button"]').at(0)
     const amount = wrapper.find('[data-test="amount-paragraph"]').at(0)
     decButton.simulate('click')
     expect(amount.text()).toBe('9');
   })  
-  it("increase amount on click", () => {
+  it("increase amount on inc click CartItem in CartView", () => {
 		const wrapper = mount(<CartView/>)
     const incButton = wrapper.find('[data-test="add-cart-button"]').at(0)
     const amount = wrapper.find('[data-test="amount-paragraph"]').at(0)
     incButton.simulate('click')
-    expect(amount.text()).toBe('11');
+    expect(amount.text()).toBe('10');
+  })  
+  it("item delets on delete click CartItem in CartView", () => {
+		const wrapper = mount(<CartView/>)
+    const deleteButton = wrapper.find('[data-test="delete-cart-button"]').at(0)
+    deleteButton.simulate('click')
+    const cartItems = wrapper.find('[data-test="cart-item"]')
+    expect(cartItems.length).toEqual(0)
   })  
 
   it("renders ProductView without errors (smoke test)", () => {
