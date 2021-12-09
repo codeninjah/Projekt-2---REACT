@@ -18,6 +18,7 @@ export const ProductsView = (props:Props) => {
             <label htmlFor="">Search</label>
             <input 
             type="text"
+            data-test="products-input"
             value={inputValue}
             onChange={(
               ev: React.ChangeEvent<HTMLInputElement>,

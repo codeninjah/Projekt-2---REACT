@@ -27,6 +27,13 @@ describe("Finns grid av produkter", () => {
     const nameElement = screen.getByText(/Kiwi/i)
     expect(nameElement).toBeInTheDocument()
   })
+  it("input in productsView filters productItems", () => {
+    const wrapper = mount(<ProductsView view={(item) => console.log(item)}/>)
+    const input = wrapper.find('[data-test="products-input"]')
+    input.simulate('change', { target: { value: 'M' } })
+    const productItem = wrapper.find('li').length
+    expect(productItem).toEqual(6);
+  })
   it("renders CartView without errors (smoke test)", () => {
     render(<CartView/>)
   })
