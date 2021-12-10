@@ -2,6 +2,21 @@
   margin: 0;
   padding: 0;
 }
+button {
+  cursor: pointer;
+}
+h3 {
+  font-size: 2em;
+}
+.button {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  min-width: fit-content;
+  width: 100%;
+  font-size: 1.2em;
+}
 #root {
   max-height: 100vh;
 }
@@ -10,32 +25,34 @@
   width: 100%;
   display: grid;
   grid-template-rows: auto 84% 1fr;
-  /*
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  */
 }
 header {
+  height: 100%;
   padding: 0.8rem 2.4rem 0 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   grid-row: 1/2;
 }
+header > h1 {
+  font-size: 2.4rem;
+}
 header > nav {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background: black;
+  justify-content: center;
+  align-items: center; 
+}
+.nav > button {
+  padding: 0;
+  background: none;
+  color: black;
+  border: none;
+  margin-left: 0.8rem;
+  font-size: 1.6em;
 }
 main {
   grid-row: 2/3;
   height: 100%;
-  /*
-  flex-grow: 1;
-  justify-self: flex-start;
-  */
   background: grey;
   display: flex;
   flex-direction: column;
@@ -52,7 +69,7 @@ main {
   box-sizing: border-box;
   overflow-y: hidden;
 }
-.productsList li {
+.productsList li, .productsList li article, .productView {
   background: white;
   display: flex;
   flex-direction: column;
@@ -60,7 +77,13 @@ main {
   align-items: center;
   padding: 0.8rem;
 }
-.productsList > li > * {
+.productsList li article {
+  width: fit-content;
+}
+.productView {
+  height: 100%;
+}
+.productsList > li > article *, .productView > * {
   margin: 0.2rem;
 }
 .mainBar {
@@ -70,14 +93,25 @@ main {
   align-items: center;
   background: rgb(233, 233, 233);
   box-sizing: border-box;
-}
-.mainBar > h2 {
   padding: 0.8rem 2.4rem 0.8rem 2.4rem;
 }
 .inputContainer {
   display: flex;
   flex-direction: column;
-  padding: 0 2.4rem 0 2.4rem;
+}
+.buttonContainer, .buttonContainer > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonContainer > button {
+  border: none;
+  background: none;
+  padding: 0 0.2rem 0 0.2rem;
+  font-size: 1.6em;
+}
+.buttonContainer > button:first-child {
+  transform: rotate(180deg)
 }
 /*
 main > div {

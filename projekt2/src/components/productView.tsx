@@ -3,9 +3,9 @@ import {Product} from "../models/Product"
 
 const ProductView = ({id, name, price}:Product) => {
     return (
-        <div className="productView">
+        <article className="productView">
             <ProductItem id={id} name={name} price={price}/>
-        </div>
+        </article>
     )
 }
 

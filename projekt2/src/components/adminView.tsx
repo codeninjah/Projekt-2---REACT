@@ -5,7 +5,7 @@ import {Props}from "../models/Product"
 
 
 
-export const ProductsView = (props:Props) => {
+export const AdminView = (props:Props) => {
     const itemList = Products
     const [inputValue, setInputValue] = useState<string>("")
     return (
@@ -23,7 +23,7 @@ export const ProductsView = (props:Props) => {
           />
         </div>
  
-          <h2>Our Products</h2>
+          <h2>Admin</h2>
         </div>
         <ul className="productsList">
           {
@@ -31,7 +31,6 @@ export const ProductsView = (props:Props) => {
               <li className="productItem" key={item.id}>
                 <article>
                   <ProductItem key={item.id} id={item.id} name={item.name} price={item.price}/>
-                  <button className="button" data-test="product-button" onClick={() => props.view(item)}>View Product</button>
                 </article>
               </li>
             ))
@@ -41,4 +40,4 @@ export const ProductsView = (props:Props) => {
     )
   }
 
-  export default ProductsView
+  export default AdminView

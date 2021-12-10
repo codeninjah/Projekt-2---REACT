@@ -23,6 +23,7 @@ const CartView = () => {
       <>
         <div className="mainBar">
           <h2>Shopping Cart</h2>
+          <p data-test="total-price">Total: {totalPrice} Sek</p>
         </div>
         <ul className="productsList">
           {
@@ -31,7 +32,6 @@ const CartView = () => {
               return item ? (<CartItem key={item.id} id={item.id} name={item.name} price={item.price} amount={cart.amount} deleteItem={(itemId) => deleteItem(itemId)} countTotal={countTotal}/>) : null
           })}
         </ul>
-        <p data-test="total-price">{totalPrice}</p>
       </>
     )
   }

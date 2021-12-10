@@ -160,4 +160,16 @@ describe("loginView", () => {
     button.simulate('click')
     expect(wrapper.find('.name').getElement().props.value).toBe('Wrong name')
   })
+  it("enables adminView for Admins", () => {
+    const wrapper = mount(<App/>)
+    const button = wrapper.find('[data-test="login-button"]')
+    const nameField = wrapper.find('.name')
+    nameField.simulate('change', { target: { value: 'Simon' } })
+    button.simulate('click')
+    const adminButton = wrapper.find('[data-test="admin-button"]').at(0)
+    //adminButton.simulate('click')
+    //const h2 = wrapper.find('h2')
+    expect(adminButton.text()).toBe('Admin')
+  })
+  
 })

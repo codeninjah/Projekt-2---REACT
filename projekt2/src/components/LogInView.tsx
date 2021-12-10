@@ -24,8 +24,11 @@ const LoginView = (props: Props) => {
             ): void => setInputValue(ev.target.value)}
           />
             <button
+            className="button"
             data-test="login-button"
-            onClick={LogaIn}>Log In</button>
+            onClick={LogaIn}
+            >Log In</button>
+
         </div>
     )
 }
