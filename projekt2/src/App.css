@@ -8,6 +8,9 @@ button {
 h3 {
   font-size: 2em;
 }
+ul {
+  list-style: none;
+}
 .button {
   background: blue;
   color: white;
@@ -65,7 +68,6 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.8rem;
-  list-style: none;
   box-sizing: border-box;
   overflow-y: hidden;
 }
@@ -85,6 +87,9 @@ main {
 }
 .productsList > li > article *, .productView > * {
   margin: 0.2rem;
+}
+.userInputs > * {
+  margin: 0.2rem 0 0.2rem 0;
 }
 .mainBar {
   width: 100%;
@@ -111,8 +116,23 @@ main {
   font-size: 1.6em;
 }
 .buttonContainer > button:first-child {
-  transform: rotate(180deg)
+  transform: rotate(180deg);
 }
+.adminUser, .adminProduct {
+  flex-grow: 1;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4rem;
+  box-sizing: border-box;
+}
+.adminUser > article, .adminProduct > article {
+  max-height: 50vh;
+  overflow-y: scroll;
+  padding: 0.8rem;
+}
+
 /*
 main > div {
   display: flex;
@@ -132,6 +152,7 @@ footer {
   height: 2.4rem;
   */
 }
+
 /*
 .productView {
   height: 100%;

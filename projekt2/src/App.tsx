@@ -27,7 +27,7 @@ function App() {
     main = <LoginView view={() => setView("products")} admin={() => setAdmin(true)}/>
   }
   else if (view === VIEW_ADMIN) {
-    main = <AdminView view={(item:Product) => viewProduct(item)}/>
+    main = <AdminView />
   }
   const viewProduct = (item: Product) => {
     setProduct(item)

@@ -7,11 +7,11 @@ const LoginView = (props: Props) => {
     const [passwordValue, setpasswordValue] = useState<string>("")
     const LogaIn = () => {
         const user:User | undefined = Users.find(user => user.name === nameValue)
-        if (user && user.name === "Alex") {
-            props.admin()
-        }
         if (user && user.login === passwordValue) {
-            props.view()
+          if (user.name === "Alex") {
+              props.admin()
+          }
+          props.view()
         }   else {
             setnameValue("Wrong details")
             setpasswordValue("")
