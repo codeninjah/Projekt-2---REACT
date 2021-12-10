@@ -101,14 +101,14 @@ describe("cartView", () => {
     const addButton = wrapper.find('[data-test="add-cart-button"]').at(0)
     addButton.simulate('click')
     const amount = wrapper.find('[data-test="total-price"]').at(0)
-    expect(amount.text()).toBe('50');
+    expect(amount.text()).toBe('Total: 50 SEK');
   })  
   it("total price adds up amount on delete click CartItem in CartView", () => {
 		const wrapper = mount(<CartView/>)
     const deleteButton = wrapper.find('[data-test="delete-cart-button"]').at(0)
     deleteButton.simulate('click')
     const amount = wrapper.find('[data-test="total-price"]').at(0)
-    expect(amount.text()).toBe('0');
+    expect(amount.text()).toBe('Total: 0 SEK');
   })  
 })
 
@@ -172,16 +172,36 @@ describe("loginView", () => {
     button.simulate('click')
     expect(wrapper.find('.name').getElement().props.value).toBe('Wrong details')
   })
-  it("enables adminView for Admins", () => {
+  it("renders adminButton for Admins when Login", () => {
     const wrapper = mount(<App/>)
     const button = wrapper.find('[data-test="login-button"]')
     const nameField = wrapper.find('.name')
-    nameField.simulate('change', { target: { value: 'Simon' } })
+    const passwordField = wrapper.find('.password')
+    nameField.simulate('change', { target: { value: 'Alex' } })
+    passwordField.simulate('change', { target: { value: '4889fbf6-4a66-4cb4-bed9-1c5086379b9f' } } )
     button.simulate('click')
     const adminButton = wrapper.find('[data-test="admin-button"]').at(0)
-    //adminButton.simulate('click')
-    //const h2 = wrapper.find('h2')
     expect(adminButton.text()).toBe('Admin')
   })
+  it("change name value of product from AdminView", () => {
+    const wrapper = mount(<App/>)
+    const button = wrapper.find('[data-test="login-button"]')
+    const nameField = wrapper.find('.name')
+    const passwordField = wrapper.find('.password')
+    nameField.simulate('change', { target: { value: 'Alex' } })
+    passwordField.simulate('change', { target: { value: '4889fbf6-4a66-4cb4-bed9-1c5086379b9f' } } )
+    button.simulate('click')
+    const adminButton = wrapper.find('[data-test="admin-button"]')
+    adminButton.simulate('click')
+    const adminField = wrapper.find('[data-test="admin-name-input"]').at(0)
+    const adminEditButton = wrapper.find('[data-test="admin-edit-button"]').at(0)
+    adminField.simulate('change', { target: { value: 'Grillkorv' } } )
+    adminEditButton.simulate('click')
+    const productsButton = wrapper.find('[data-test="products-button"]')
+    productsButton.simulate('click')
+    const h3 = wrapper.find('h3').at(0)
+    expect(h3.text()).toBe('Grillkorv')
+  })
+  
   
 })

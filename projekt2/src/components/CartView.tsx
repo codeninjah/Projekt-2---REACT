@@ -23,7 +23,7 @@ const CartView = () => {
       <>
         <div className="mainBar">
           <h2>Shopping Cart</h2>
-          <p data-test="total-price">Total: {totalPrice} Sek</p>
+          <p data-test="total-price">Total: {totalPrice} SEK</p>
         </div>
         <ul className="productsList">
           {

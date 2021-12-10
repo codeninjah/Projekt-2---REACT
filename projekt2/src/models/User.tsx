@@ -4,5 +4,6 @@ export interface User {
   }
 
 export type Props = {
-    view: () => void
+  admin: () => void,  
+  view: () => void
 }
